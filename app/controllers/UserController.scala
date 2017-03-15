@@ -41,11 +41,11 @@ class UserController @Inject()(userRepository: UserRepository)
 
     val sourceString: Source[String, _] = source.map(user => user.toJsonWithJackson).intersperse("[", ",\n", "]")
 
-    val sourceBiteString: Source[ByteString, _] = sourceString.fold(ByteString.fromString(""))(_ ++ ByteString(_))
+    val sourceByteString: Source[ByteString, _] = sourceString.fold(ByteString.fromString(""))(_ ++ ByteString(_))
 
     Result(
       header = ResponseHeader(200, Map.empty),
-      body = HttpEntity.Streamed(sourceBiteString, None, Some(ContentTypes.JSON))
+      body = HttpEntity.Streamed(sourceByteString, None, Some(ContentTypes.JSON))
     )
   }
 
