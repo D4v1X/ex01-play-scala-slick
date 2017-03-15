@@ -1,0 +1,19 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+GET        /                       controllers.UserController.getUsersStream
+GET        /api/data               controllers.UserController.getUsersStream
+
+# 22 seg
+GET        /api/data/memory        controllers.UserController.getUsers
+
+# With PlayJson: 19 seg
+# With Jackson: 17 seg
+# With String: 18 seg
+GET        /api/data/chuck         controllers.UserController.getUsersChuck
+
+# With PlayJson: 15 seg
+# With Jackson: 4 seg
+# With String: 3 seg
+GET        /api/data/stream        controllers.UserController.getUsersStream
