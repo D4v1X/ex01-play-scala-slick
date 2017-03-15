@@ -1,0 +1,27 @@
+Directory content:
+******************
+
+In this directory there's a zip file containing 2 files:
+ - create_table_tm_user.sql
+ - dump_tm_user.sql
+
+The first one is to create a simple table and the second one contains the data that has to be imported into that table.
+For this exercise we assume Postgres as the database.
+
+
+Problem:
+********
+We want to generate a little REST API with just 1 endpoint. This endpoint will be exposed in:
+ - /api/data
+
+The endpoint will return JSON objects with the format:
+  {
+  	id: user ID,
+  	name : user name,
+  	age: user age,
+  	address : user address
+  }
+
+Feel free to use any technology/library to implement this.
+
+This endpoint needs to deliver all the data in this table. The main goal is to deliver the data to the user as fast as possible.
